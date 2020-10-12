@@ -1,8 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import AppLoading from './components/AppLoading';
 import { useFonts } from 'expo-font';
 import Signup from './pages/Signup/Signup';
+import Login from './pages/Login/Login';
+
+const Stack = createStackNavigator();
 
 export default props => {
   let [fontsLoaded] = useFonts({
@@ -13,9 +17,12 @@ export default props => {
     return <AppLoading />;
   } else {
     return (
-      <>
-        <Signup />
-      </>
+      <NavigationContainer>
+        <Stack.Navigator headerMode={'none'}>
+          <Stack.Screen name="Signup" component={Signup} />
+          <Stack.Screen name="Login" component={Login} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 };

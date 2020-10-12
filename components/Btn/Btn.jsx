@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-native-paper';
+// import { TouchableOpacity, Button } from 'react-native'
 import { StyleSheet, Text } from 'react-native';
 import Global from '../../Global';
 
@@ -23,6 +24,12 @@ export default ({
         >
             <Text style={styles.btnText}>{text}</Text>
         </Button>
+        // <TouchableOpacity
+        //     style={styles.btn}
+        //     onPress={onPress}
+        // >
+        //     <Text>{text}</Text>
+        // </TouchableOpacity>
     )
 }
 

@@ -6,7 +6,7 @@ import Btn from '../../components/Btn/Btn';
 import { ScrollView } from 'react-native';
 import Global from '../../Global';
 
-export default () => {
+export default ({ navigation }) => {
     const [username, setUsername] = useState(null);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
@@ -35,6 +35,7 @@ export default () => {
             />
             <Btn text={'Login'} />
             {/* <StatusBar style="auto" /> */}
+            <Btn text={'Signup'} onPress={() => navigation.navigate('Signup')} />
         </ScrollView>
     )
 }

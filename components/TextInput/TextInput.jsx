@@ -3,6 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import Global from '../../Global';
 import { TextInput } from 'react-native';
 // import { TextInput } from 'react-native-paper';
+// import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons'; 
 
 
 export default ({
@@ -11,11 +13,19 @@ export default ({
     onChangeText,
     disabled,
     placeholder,
-    keyboardType
+    keyboardType,
+    icon,
+    iconSize,
+    iconColor,
+    secureTextEntry
 }) => {
     return (
         <View style={styles.inputBox}>
+            {
+                icon ? <Feather name={icon} size={iconSize || 24} color={iconColor} /> : null
+            }
             <TextInput
+                secureTextEntry={true}
                 onChangeText={e => onChangeText(e)}
                 style={styles.input}
                 underlineColorAndroid='transparent'
@@ -45,6 +55,9 @@ export default ({
 
 const styles = StyleSheet.create({
     inputBox: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
         margin: 10,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
@@ -53,10 +66,10 @@ const styles = StyleSheet.create({
         borderColor: Global.PRIMARY_COLOR,
         borderWidth: 2,
         padding: 15,
-        paddingLeft: 15,
         backgroundColor: Global.GRAY
     },
     input: {
+        paddingLeft: 15,
         fontSize: 20,
     }
 })
