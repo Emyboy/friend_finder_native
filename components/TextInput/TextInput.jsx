@@ -1,25 +1,32 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Global from '../../Global';
 import { TextInput } from 'react-native';
 // import { TextInput } from 'react-native-paper';
+
 
 export default ({
     label,
     value,
     onChangeText,
     disabled,
-    placeholder
+    placeholder,
+    keyboardType
 }) => {
     return (
-        <TextInput 
-            onChangeText={e => onChangeText(e)}
-            style={styles.input}
-            underlineColorAndroid='transparent'
-            underlineColor='transparent'
-            placeholder={label}
-            caretHidden={true}
-        />
+        <View style={styles.inputBox}>
+            <TextInput
+                onChangeText={e => onChangeText(e)}
+                style={styles.input}
+                underlineColorAndroid='transparent'
+                underlineColor='transparent'
+                placeholder={placeholder}
+                editable={disabled}
+                defaultValue={value}
+                caretHidden={true}
+                keyboardType={keyboardType}
+            />
+        </View>
         // <TextInput
         //     style={styles.input}
         //     label={label}
@@ -37,7 +44,7 @@ export default ({
 };
 
 const styles = StyleSheet.create({
-    input: {
+    inputBox: {
         margin: 10,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
@@ -47,7 +54,9 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         padding: 15,
         paddingLeft: 15,
-        fontSize: 20,
         backgroundColor: Global.GRAY
+    },
+    input: {
+        fontSize: 20,
     }
 })

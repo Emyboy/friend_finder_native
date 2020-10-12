@@ -18,12 +18,11 @@ export default () => {
     return (
         <ScrollView style={{ backgroundColor: Global.PRIMARY_COLOR_DARK }}>
             <View style={{ alignItems: 'center', paddingTop: 100 }}>
-                <Title style={{ fontSize: 35, paddingTop: 30, color: 'white' }}>Signup</Title>
+                <Title style={{ fontSize: 35, paddingTop: 30, color: 'white' }}>Login</Title>
             </View>
             <TextInput
                 onChangeText={e => setUsername(e)}
                 placeholder={'Username'}
-                keyboardType='default'
             />
             <TextInput
                 onChangeText={e => setEmail(e)}
@@ -34,7 +33,7 @@ export default () => {
                 onChangeText={e => setPassword(e)}
                 placeholder={'Password'}
             />
-            <Btn text={'Signup'} />
+            <Btn text={'Login'} />
             {/* <StatusBar style="auto" /> */}
         </ScrollView>
     )

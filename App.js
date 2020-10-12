@@ -1,24 +1,21 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
-// import { createStore } from 'redux';
+import { Text, View } from 'react-native';
+import AppLoading from './components/AppLoading';
+import { useFonts } from 'expo-font';
 import Signup from './pages/Signup/Signup';
-// import rootReducer from './redux/store/store';
 
-// const store = createStore(rootReducer);
+export default props => {
+  let [fontsLoaded] = useFonts({
+    'Inter-Black': require('./assets/fonts/Commissioner-VariableFont_wght.ttf'),
+  });
 
-export default function App() {
-  return (
-    // <Provider store={store}>
-      <Signup />
-    // </Provider>
-  );
-}
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <>
+        <Signup />
+      </>
+    );
+  }
+};
