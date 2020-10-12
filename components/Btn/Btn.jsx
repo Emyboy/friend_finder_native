@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native-paper';
 import { StyleSheet, Text } from 'react-native';
-import Style from '../../Style';
+import Global from '../../Global';
 
 export default ({
     loading,
@@ -28,7 +28,7 @@ export default ({
 
 const styles = StyleSheet.create({
     btn: {
-        backgroundColor: Style.PRIMARY_COLOR,
+        backgroundColor: Global.PRIMARY_COLOR,
         margin: 10,
         padding: 10,
         borderRadius: 30

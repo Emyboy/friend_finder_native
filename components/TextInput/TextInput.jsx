@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import Style from '../../Style';
+import Global from '../../Global';
 import { TextInput } from 'react-native';
 // import { TextInput } from 'react-native-paper';
 
@@ -43,11 +43,11 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 30,
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30,
-        borderColor: Style.PRIMARY_COLOR,
+        borderColor: Global.PRIMARY_COLOR,
         borderWidth: 2,
         padding: 15,
         paddingLeft: 15,
         fontSize: 20,
-        backgroundColor: '#E6E7E8'
+        backgroundColor: Global.GRAY
     }
 })
