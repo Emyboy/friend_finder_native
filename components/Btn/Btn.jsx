@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         borderRadius: 30
     },
     btnText: {
-        fontSize: 19
+        fontSize: 19,
+        fontFamily: Global.PRIMARY_FONT
     }
 })

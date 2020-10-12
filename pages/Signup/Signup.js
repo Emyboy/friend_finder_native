@@ -18,7 +18,7 @@ export default ({ navigation }) => {
     return (
         <ScrollView style={{ backgroundColor: Global.PRIMARY_COLOR_DARK }}>
             <View style={{ alignItems: 'center', paddingTop: 100 }}>
-                <Title style={{ fontSize: 35, paddingTop: 30, color: 'white' }}>Signup</Title>
+                <Title style={{ fontSize: 35, paddingTop: 30, color: 'white', fontFamily: Global.PRIMARY_FONT }}>Signup</Title>
             </View>
             <TextInput
                 onChangeText={e => setUsername(e)}

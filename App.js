@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 export default props => {
   let [fontsLoaded] = useFonts({
-    'Inter-Black': require('./assets/fonts/Commissioner-VariableFont_wght.ttf'),
+    'Commissioner-VariableFont_wght': require('./assets/fonts/static/Commissioner-Regular.ttf'),
   });
 
   if (!fontsLoaded) {

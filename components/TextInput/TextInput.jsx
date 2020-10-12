@@ -25,7 +25,7 @@ export default ({
                 icon ? <Feather name={icon} size={iconSize || 24} color={iconColor} /> : null
             }
             <TextInput
-                secureTextEntry={true}
+                secureTextEntry={secureTextEntry}
                 onChangeText={e => onChangeText(e)}
                 style={styles.input}
                 underlineColorAndroid='transparent'
@@ -71,5 +71,7 @@ const styles = StyleSheet.create({
     input: {
         paddingLeft: 15,
         fontSize: 20,
+        fontFamily: Global.PRIMARY_FONT,
+        width: '90%'
     }
 })
