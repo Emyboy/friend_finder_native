@@ -1,5 +1,7 @@
 import { 
-    AUTH_LOADING
+    AUTH_LOADING,
+    LOGOUT,
+    SET_AUTH_USER
 } from '../actions';
 
 const initialState = {
@@ -14,6 +16,16 @@ export default (state = initialState, { type, payload }) => {
         return {
             ...state,
             isLoading: payload
+        }
+    case SET_AUTH_USER:
+        return {
+            ...state,
+            authData: payload
+        }
+    case LOGOUT:
+        return {
+            ...state,
+            authData: null
         }
 
     default:
