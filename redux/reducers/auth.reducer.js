@@ -6,7 +6,8 @@ import {
 
 const initialState = {
     isLoading: false,
-    authData: null
+    authData: null,
+    isLoggedIn: false
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -18,14 +19,17 @@ export default (state = initialState, { type, payload }) => {
             isLoading: payload
         }
     case SET_AUTH_USER:
+        console.log('auth set --', payload)
         return {
             ...state,
-            authData: payload
+            authData: payload,
+            isLoggedIn: true
         }
     case LOGOUT:
         return {
             ...state,
-            authData: null
+            authData: null,
+            isLoggedIn: false
         }
 
     default:

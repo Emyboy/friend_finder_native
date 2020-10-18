@@ -8,7 +8,6 @@ import Global from '../../Global';
 import { connect } from 'react-redux';
 import { signup } from '../../redux/actions/auth.action';
 import { popup } from '../../redux/actions/view.action';
-import AppLoading from '../../components/AppLoading'
 import Home from '../Home/Home';
 // import DropDown from '../../components/DropDown/DropDown';
 
@@ -89,10 +88,6 @@ export default connect(
         }
     }
 
-    if(auth.authData){
-        // props.navigation.navigate('Home');
-        return <Home />
-    }else {
         return (
 
             <ScrollView style={{ backgroundColor: Global.PRIMARY_COLOR_DARK }}>
@@ -138,6 +133,5 @@ export default connect(
             </ScrollView>
 
         )
-    }
 });
 
