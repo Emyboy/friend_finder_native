@@ -12,6 +12,7 @@ import Home from '../Home/Home';
 import { Picker } from 'native-base';
 // import DropDown from '../../components/DropDown/DropDown';
 import DropDown from '../../components/DropDown/DropDown';
+import Mock from '../../Mock';
 
 const mapStateToProps = state => ({
     auth: state.auth,
@@ -31,8 +32,8 @@ export default connect(
     const { navigation, auth} = props;
     const [firstname, setFirstName] = useState(null);
     const [lastname, setLastname] = useState(null);
-    const [gender, setGender] = useState(null);
-    const [dateOfBirth, setDateOfBirth] = useState(null);
+    const [gender, setGender] = useState('male');
+    // const [dateOfBirth, setDateOfBirth] = useState(null);
     const [username, setUsername] = useState(null);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
@@ -45,9 +46,9 @@ export default connect(
                 username,
                 password,
                 email,
+                gender,
                 firstName: firstname,
                 lastName: lastname,
-                date_of_birth: 'dateOfBirth'
             })
         } else {
             props.Popup({
@@ -67,8 +68,8 @@ export default connect(
             case 'lastname':
                 setLastname(text);
                 break;
-            case 'dateOfBirth':
-                setDateOfBirth(text);
+            // case 'dateOfBirth':
+            //     setDateOfBirth(text);
                 break;
             case 'username':
                 setUsername(text);
@@ -102,33 +103,41 @@ export default connect(
                         placeholder={'First Name'}
                         keyboardType='default'
                         icon='user-check'
+                        disabled={auth.isLoading}
                     />
                     <TextInput
                         onChangeText={e => handleInputChange('lastname', e)}
                         placeholder={'Last Name'}
                         keyboardType='default'
                         icon='user-check'
+                        disabled={auth.isLoading}
                     />
                     <TextInput
                         onChangeText={e => handleInputChange('username', e)}
                         placeholder={'Username'}
                         keyboardType='default'
                         icon='user'
+                        disabled={auth.isLoading}
                     />
                     <TextInput
                         onChangeText={e => handleInputChange('email', e)}
                         placeholder={'Email'}
                         keyboardType={'email-address'}
                         icon='mail'
+                        disabled={auth.isLoading}
                     />
                     <DropDown 
-                        data={[]}
+                        data={Mock.gender}
+                        onChange={e => setGender(e)}
+                        defaultValue={gender}
+                        disabled={auth.isLoading}
                     />
                     <TextInput
                         onChangeText={e => handleInputChange('password', e)}
                         placeholder={'Password'}
                         icon='key'
                         secureTextEntry={true}
+                        disabled={auth.isLoading}
                     />
                     <Btn text={'Signup'} disabled={auth.isLoading} onPress={handleSubmit} loading={auth.isLoading} />
                     {/* <StatusBar style="auto" /> */}

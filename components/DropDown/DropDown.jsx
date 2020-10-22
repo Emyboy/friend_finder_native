@@ -1,11 +1,15 @@
 import { Picker, View } from 'native-base';
 import React, { Component } from 'react';
 import Global from '../../Global';
-import { Feather } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
 
 export default class DropDown extends Component {
     render() {
-        const { data } = this.props;
+        const {
+            data,
+            onChange,
+            defaultValue
+        } = this.props;
         return (
             <View style={{
                 marginTop: 5,
@@ -25,14 +29,15 @@ export default class DropDown extends Component {
                 <Picker
                     note
                     mode="dropdown"
-                // style={{ width: 120 }}
-                // selectedValue={this.state.selected}
+                    onValueChange={e => onChange(e)}
+                    // style={{ width: 120 }}
+                    selectedValue={defaultValue}
                 // onValueChange={this.onValueChange.bind(this)}
                 >
                     {
                         data.map((val, i) => {
-                            return(
-                                <Picker.Item label="Wallet" value="key0" />
+                            return (
+                                <Picker.Item label={val.label} value={val.value} key={i} />
                             )
                         })
                     }
