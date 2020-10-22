@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
+import Global from '../../Global';
 import Btn from '../Btn/Btn';
 
 const MyComponent = () => {
@@ -10,7 +11,7 @@ const MyComponent = () => {
     const _handleMore = () => console.log('Shown more');
 
     return (
-        <Appbar.Header>
+        <Appbar.Header style={{ backgroundColor: Global.PRIMARY_COLOR }}>
             {/* <Appbar.BackAction onPress={() => { }} /> */}
             {/* <Appbar.Content title="Title" subtitle="Subtitle" />
             <Appbar.Action icon="magnify" onPress={() => { }} /> */}

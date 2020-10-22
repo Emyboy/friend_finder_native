@@ -64,16 +64,18 @@ export const login = data => dispatch => {
     })
         .then(res => {
             console.log('res ---', res);
+            SyncStorage.set('authData', res.data.user)
+                .then(data => console.log('saved', data))
+                .then(err => console.log('saved err', err))
+            SyncStorage.set('token', res.data.token)
+                .then(data => console.log('saved', data))
+                .then(err => console.log('saved err', err))
             dispatch({
                 type: AUTH_LOADING,
                 payload: false
             });
-            // SyncStorage.set('authData', res.data.user)
-            //     .then(data => console.log('saved', data))
-            //     .then(err => console.log('saved err', err))
-            // SyncStorage.set('token', res.data.token)
-            //     .then(data => console.log('saved', data))
-            //     .then(err => console.log('saved err', err))
+
+            console.log()
 
             dispatch({
                 type: SET_AUTH_USER,
@@ -81,10 +83,10 @@ export const login = data => dispatch => {
             })
         })
         .catch(err => {
-            // dispatch({
-            //     type: AUTH_LOADING,
-            //     payload: false
-            // });
+            dispatch({
+                type: AUTH_LOADING,
+                payload: false
+            });
             // alert('Login Error')
             console.log('login error --', err)
         })
