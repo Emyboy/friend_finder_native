@@ -97,6 +97,7 @@ export const login = data => dispatch => {
 export const logout = () => dispatch => {
     console.log('loggin out');
     AsyncStorage.clear();
+    SyncStorage.remove('authData');
     dispatch({
         type: LOGOUT,
     })

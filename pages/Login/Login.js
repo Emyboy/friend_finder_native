@@ -7,7 +7,6 @@ import { ScrollView } from 'react-native';
 import Global from '../../Global';
 import { login } from '../../redux/actions/auth.action';
 import { connect } from 'react-redux';
-import Home from '../Home/Home';
 
 
 const mapStateToProps = state => ({
@@ -49,12 +48,14 @@ export default connect(
                 <TextInput
                     onChangeText={e => setEmail(e)}
                     placeholder={'Email'}
+                    disabled={auth.isLoading}
                     keyboardType={'email-address'}
                     icon='mail'
                 />
                 <TextInput
                     onChangeText={e => setPassword(e)}
                     placeholder={'Password'}
+                    disabled={auth.isLoading}
                     icon='key'
                     secureTextEntry={true}
                 />

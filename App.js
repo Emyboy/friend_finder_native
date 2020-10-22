@@ -13,7 +13,6 @@ import AuthStack from './stacks/AuthStack';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
-
 export default () => {
   let [fontsLoaded] = useFonts({
     'Commissioner-VariableFont_wght': require('./assets/fonts/static/Commissioner-Regular.ttf'),
@@ -31,9 +30,6 @@ export default () => {
       setSyncLoaded(false)
       console.log('sinc error', err)})
   // console.log('AsyncStorage is ready!', data);
-
-  const authData = SyncStorage.get('authData')
-  console.log('authData Sync-------', authData);
 
   if (!fontsLoaded) {
     return <AppLoading />

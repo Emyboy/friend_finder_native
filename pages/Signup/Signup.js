@@ -9,7 +9,9 @@ import { connect } from 'react-redux';
 import { signup } from '../../redux/actions/auth.action';
 import { popup } from '../../redux/actions/view.action';
 import Home from '../Home/Home';
+import { Picker } from 'native-base';
 // import DropDown from '../../components/DropDown/DropDown';
+import DropDown from '../../components/DropDown/DropDown';
 
 const mapStateToProps = state => ({
     auth: state.auth,
@@ -93,7 +95,7 @@ export default connect(
             <ScrollView style={{ backgroundColor: Global.PRIMARY_COLOR_DARK }}>
                 <View>
                     <View style={{ alignItems: 'center', paddingTop: 100 }}>
-                        <Title style={{ fontSize: 35, paddingTop: 30, color: 'white', fontFamily: Global.PRIMARY_FONT }}>Signup</Title>
+                        <Title style={{ fontSize: 35, paddingTop: 10, color: 'white', fontFamily: Global.PRIMARY_FONT }}>Signup</Title>
                     </View>
                     <TextInput
                         onChangeText={e => handleInputChange('firstname', e)}
@@ -119,7 +121,9 @@ export default connect(
                         keyboardType={'email-address'}
                         icon='mail'
                     />
-                    {/* <DropDown /> */}
+                    <DropDown 
+                        data={[]}
+                    />
                     <TextInput
                         onChangeText={e => handleInputChange('password', e)}
                         placeholder={'Password'}

@@ -31,7 +31,7 @@ export default ({
                 underlineColorAndroid='transparent'
                 underlineColor='transparent'
                 placeholder={placeholder}
-                editable={disabled}
+                editable={!disabled}
                 defaultValue={value}
                 caretHidden={true}
                 keyboardType={keyboardType}
