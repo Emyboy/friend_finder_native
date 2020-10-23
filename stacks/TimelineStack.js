@@ -48,10 +48,10 @@ export default function MyTabs() {
                 }}
             />
             <Tab.Screen 
-                name="Chat" 
+                name="Messages" 
                 component={Messages} 
                 options={{
-                    tabBarLabel: 'Chat',
+                    tabBarLabel: 'Messages',
                     tabBarIcon: ({ color, size }) => (
                         <Feather name="mail" color={color} size={size} />
                     ),

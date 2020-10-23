@@ -1,10 +1,9 @@
-import * as React from 'react';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import { Text } from 'react-native';
+import React, { Component } from 'react';
+import { Image } from 'react-native';
+import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import { connect } from 'react-redux';
-
-
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
+import Global from '../../Global';
 
 const mapStateToProps = state => ({
     auth: state.auth
@@ -14,33 +13,61 @@ const mapDispatchToProps = {
 
 }
 
-const PostCard = connect(
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)((props) => {
-    const { authData } = props.auth;
-    console.log('POST CARD AUTH', authData);
-    // console.log('__DEV__', __DEV__)
-    return (
-        <Card style={{ marginTop: 10 }}>
-
-            {/* <Card.Title title="Card Title" subtitle="Card Subtitle" left={
-                <Avatar.Image size={24} source={require(authData.avatar_url)} />
-            } /> */}
-            <Card.Cover source={{ uri: authData.banner_url }} />
-            <Card.Actions>
-            </Card.Actions>
-            <Card.Content>
-                {/* <Title>Card title</Title> */}
-                <Text>
-                    kdla dkslkdlsdklskd sldklsdk
-            </Text>
-            </Card.Content>
-            {/* <Paragraph>
-            aldksldk lskd sldkd lk
-        </Paragraph> */}
-        </Card>
-    )
+)(class CardImageExample extends Component {
+    render() {
+        const { authData } = this.props.auth
+        console.log('Post Cart authDAta ---', authData);
+        return (
+            <Card>
+                <CardItem>
+                    <Left>
+                        <Thumbnail source={{ uri: authData.avatar_url }} style={{ 
+                            width: 30,
+                            height: 30
+                        }} />
+                        <Body>
+                            <Text style={{ color: Global.PRIMARY_COLOR_DARK }}>{authData.username}</Text>
+                            <Text note>GeekyAnts</Text>
+                        </Body>
+                    </Left>
+                </CardItem>
+                <CardItem cardBody>
+                    <Image source={{ uri: authData.banner_url }} style={{ height: 200, width: null, flex: 1 }} />
+                </CardItem>
+                <CardItem>
+                    <Left>
+                        <Button transparent onPress={() => {}}>
+                            <AntDesign name='hearto' size={20} />
+                            <Text style={{ color: Global.PRIMARY_COLOR_DARK }}>12</Text>
+                        </Button>
+                        <Button transparent onPress={() => {}}>
+                            <FontAwesome5 name='comment' size={20} />
+                            <Text style={{ color: Global.PRIMARY_COLOR_DARK }}>1,234</Text>
+                        </Button>
+                    </Left>
+                    {/* <Body>
+                        <Button transparent>
+                            <Icon active name="chatbubbles" />
+                            <Text style={{ color: Global.PRIMARY_COLOR_DARK }}>4 Comments</Text>
+                        </Button>
+                    </Body> */}
+                    <Right>
+                        <Text style={{ color: Global.PRIMARY_COLOR_DARK }}>11h ago</Text>
+                    </Right>
+                </CardItem>
+                <CardItem>
+                    <Body>
+                        <Text style={{ color: Global.PRIMARY_COLOR_DARK }}>
+                            Your text here Your text here our text hereYour text here ur text here
+                            Your text here Your text hereYour text hereYour text hereYour text here
+                </Text>
+                    </Body>
+                </CardItem>
+            </Card>
+        );
+    }
 });
-
-export default PostCard;

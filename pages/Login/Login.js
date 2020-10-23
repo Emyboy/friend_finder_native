@@ -29,7 +29,7 @@ export default connect(
     const [password, setPassword] = useState(null);
 
     const handleSubmit = () => {
-        if (email !== null || password !== null && email !== '' || password !== '') {
+        if (email !== null || password !== null) {
             Login({
                 email,
                 password

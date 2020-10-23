@@ -44,15 +44,17 @@ import PostCard from '../../components/PostCard/PostCard';
 // });
 
 import React from 'react';
-import { View, Text } from 'react-native';
+// import { View, Text } from 'react-native';
 import { ScrollView } from 'react-native';
 import Header from '../../components/Header/Header';
+import PostBtn from '../../components/PostBtn';
 
 export default () => {
     return (
         <>
             <Header />
-            <ScrollView style={{ margin: 5, marginBottom: 8 }}>
+            <PostBtn />
+            <ScrollView>
                 <PostCard />
                 <PostCard />
                 <PostCard />

@@ -22,7 +22,7 @@ export default connect(
     return (
         <>
             <Header />
-            <ScrollView style={{ margin: 50 }}>
+            <ScrollView>
                 <Text>Profile Page...</Text>
                 <Btn onPress={Logout} text="Logout" />
             </ScrollView>
