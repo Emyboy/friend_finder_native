@@ -64,14 +64,6 @@ export const login = data => dispatch => {
     })
         .then(res => {
             console.log('STATUS ---', res.status)
-            switch (res.status) {
-                case 404:
-                    alert('User with '+ data.email + 'doesn\'t exist');
-                    break;
-            
-                default:
-                    break;
-            }
             console.log('res ---', res);
             SyncStorage.set('authData', res.data.user)
                 .then(data => console.log('saved', data))

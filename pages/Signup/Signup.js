@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { signup } from '../../redux/actions/auth.action';
 import { popup } from '../../redux/actions/view.action';
 import Home from '../Home/Home';
-import { Picker } from 'native-base';
+// import { Picker } from 'native-base';
 // import DropDown from '../../components/DropDown/DropDown';
 import DropDown from '../../components/DropDown/DropDown';
 import Mock from '../../Mock';

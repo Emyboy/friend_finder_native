@@ -6,9 +6,13 @@ import Signup from '../pages/Signup/Signup';
 import Home from '../pages/Home/Home';
 import syncStorage from 'sync-storage';
 import Apploading from '../components/AppLoading';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Text } from 'react-native';
+import TimelineStack from './TimelineStack';
 
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const AuthStack = (props) => {
 
@@ -21,18 +25,17 @@ const AuthStack = (props) => {
             props.store.dispatch({ type: 'SET_AUTH_USER', payload: authData })
         }
     }, []);
+
     return (
-        <Stack.Navigator headerMode={'none'}>
+        <>
             {
-                props.auth.isLoggedIn ?
-                    <Stack.Screen name="Home" component={Home} />
-                    :
-                    <>
+                props.auth.authData ? <TimelineStack /> :
+                    <Stack.Navigator headerMode={'none'}>
                         <Stack.Screen name="Login" component={Login} />
                         <Stack.Screen name="Signup" component={Signup} />
-                    </>
+                    </Stack.Navigator>
             }
-        </Stack.Navigator>
+        </>
     )
 }
 

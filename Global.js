@@ -5,6 +5,7 @@ export default {
     PRIMARY_COLOR: '#27aae1',
     // PRIMARY_FONT: null,
     PRIMARY_FONT: 'Commissioner-VariableFont_wght',
+    PRIMARY_COLOR_LIGHT: '#d7e5ea',
     PRIMARY_COLOR_DARK: '#231F20',
     GRAY: '#E6E7E8'
 }
